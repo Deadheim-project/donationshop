@@ -20,17 +20,10 @@ namespace DonationShop
             }
 
             DonationShop.IsBuying = true;
-            if (!Player.m_localPlayer.m_inventory.CanAddItem(prefab, amount))
-            {
-                value.GetComponent<Text>().text = "Sem espaço no inventário";
-                DonationShop.IsBuying = false;
-                return;
-            }
 
             ZPackage pkg = new ZPackage();
             pkg.Write(price + "," + amount + "," + prefab.name);
             ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "BuyItemServer", pkg);
-
         }
     }
 }

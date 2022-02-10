@@ -110,8 +110,15 @@ namespace DonationShop
             string name = (splited[2]);
 
             GameObject prefab = PrefabManager.Instance.GetPrefab(name);
+            if (prefab.GetComponent<ItemDrop>() != null)
+            {
+                Player.m_localPlayer.m_inventory.AddItem(prefab, amount);
+            }
+            else
+            {
+                UnityEngine.Object.Instantiate<GameObject>(prefab, Player.m_localPlayer.transform.position, Quaternion.identity);
+            }
 
-            Player.m_localPlayer.m_inventory.AddItem(prefab, amount);
 
             DonationShop.IsBuying = false;
         }

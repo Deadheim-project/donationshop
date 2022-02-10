@@ -114,7 +114,6 @@ namespace DonationShop
 
             DonationShop.menuItems.Add("errorText", errorText);
 
-
             Button button = buttonObject.GetComponent<Button>();
             button.onClick.AddListener(DestroyMenu);
         }

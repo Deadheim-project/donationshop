@@ -63,6 +63,16 @@ namespace DonationShop
             }
         }
 
+        [HarmonyPatch("ChickenBoo.Patches+SpawnPatch, ChickenBoo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Prefix")]
+        public static class ChickenBooSpawnSystemPatch
+        {
+            [HarmonyPriority(Priority.First)]
+            public static bool Prefix()
+            {
+                return false;
+            }
+        }
+
         public void InitConfigs()
         {
             Config.SaveOnConfigSet = true;
