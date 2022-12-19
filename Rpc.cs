@@ -33,7 +33,8 @@ namespace DonationShop
 
             if (peer != null)
             {
-                string steamId = ((ZSteamSocket)peer.m_socket).GetPeerID().m_SteamID.ToString();
+                string[] splited = pkg.ReadString().Split(',');
+                string steamId = splited[0];
                 string playerName = peer.m_playerName;
                 string directory = Paths.ConfigPath + Folder + playerName + "-" + steamId + ".json";
 
@@ -76,14 +77,16 @@ namespace DonationShop
         {
             if (!ZNet.instance.IsServer()) return;
             ZNetPeer peer = ZNet.instance.GetPeer(sender);
-            string steamId = ((ZSteamSocket)peer.m_socket).GetPeerID().m_SteamID.ToString();
-            string playerName = peer.m_playerName;
-            string directory = Paths.ConfigPath + Folder + playerName + "-" + steamId + ".json";
-
             string[] splited = pkg.ReadString().Split(',');
             int price = Convert.ToInt32(splited[0]);
             int amount = Convert.ToInt32(splited[1]);
             string name = (splited[2]);
+            string steamId = (splited[3]);
+
+            string playerName = peer.m_playerName;
+            string directory = Paths.ConfigPath + Folder + playerName + "-" + steamId + ".json";
+
+   
             int balance = Convert.ToInt32(File.ReadAllText(directory));
 
             if (price > balance)
@@ -102,7 +105,9 @@ namespace DonationShop
 
         public static void RPC_BuyItemClient(long sender, ZPackage pkg)
         {
-            ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "GetGoldServer", new ZPackage());
+            ZPackage pkgToSend = new ZPackage();
+            pkgToSend.Write(PlayFabManager.m_customId);
+            ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "GetGoldServer", pkgToSend);
 
             string[] splited = pkg.ReadString().Split(',');
             int price = Convert.ToInt32(splited[0]);

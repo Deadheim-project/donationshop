@@ -54,73 +54,93 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="assembly_googleanalytics_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_googleanalytics_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_googleanalytics_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_guiutils_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_guiutils_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_guiutils_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_lux_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_lux_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_lux_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_postprocessing_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_postprocessing_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_postprocessing_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_simplemeshcombine_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_simplemeshcombine_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_simplemeshcombine_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_steamworks_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_steamworks_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_steamworks_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_sunshafts_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_sunshafts_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_sunshafts_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_utils_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_utils_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_utils_publicized.dll</HintPath>
     </Reference>
     <Reference Include="assembly_valheim_publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\assembly_valheim_publicized.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_valheim_publicized.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx, Version=5.4.15.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="BepInEx.Harmony, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Deadheim\Deadheim\bin\Debug\BepInEx.Harmony.dll</HintPath>
+    <Reference Include="Jotunn">
+      <HintPath>..\..\..\Desktop\valheim\ValheimModding-Jotunn-2.10.0\plugins\Jotunn.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.AnimationModule.dll</HintPath>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.AccessibilityModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.AIModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.InputLegacyModule.dll</HintPath>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\Desktop\valheim\denikson-BepInExPack_Valheim-5.4.1901\BepInExPack_Valheim\unstripped_corlib\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

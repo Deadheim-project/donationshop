@@ -15,7 +15,7 @@ namespace DonationShop
     {
         public const string PluginGUID = "Detalhes.DonationShop";
         public const string Name = "DonationShop";
-        public const string Version = "1.0.0";
+        public const string Version = "2.0.0";
 
         public static bool IsBuying = false;
 
@@ -59,17 +59,9 @@ namespace DonationShop
                     return;
 
                 GUI.ToggleMenu();
-                ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "GetGoldServer", new ZPackage());
-            }
-        }
-
-        [HarmonyPatch("ChickenBoo.Patches+SpawnPatch, ChickenBoo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Prefix")]
-        public static class ChickenBooSpawnSystemPatch
-        {
-            [HarmonyPriority(Priority.First)]
-            public static bool Prefix()
-            {
-                return false;
+                ZPackage pkgToSend = new ZPackage();
+                pkgToSend.Write(PlayFabManager.m_customId);
+                ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "GetGoldServer", pkgToSend);
             }
         }
 
