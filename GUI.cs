@@ -26,9 +26,23 @@ namespace DonationShop
             DonationShop.Menu.SetActive(false);
         }
 
+        /// <summary>
+        /// Descarta o painel montado para o proximo ToggleMenu montar de novo com o
+        /// ShopItems atual (cfg recarregado ou valor novo vindo do servidor).
+        /// </summary>
+        public static void InvalidateMenu()
+        {
+            if (DonationShop.Menu) UnityEngine.Object.Destroy(DonationShop.Menu);
+            DonationShop.Menu = null;
+        }
+
         public static void LoadMenu()
         {
             if (Player.m_localPlayer == null) return;
+
+            // Montagem nova (primeira vez, relog ou lista trocada): as referencias antigas
+            // apontam para objetos destruidos, e os Add abaixo recusariam chave repetida.
+            DonationShop.menuItems.Clear();
 
             DonationShop.Menu = Ui.CreateWoodpanel(
                                                                        parent: Ui.Front.transform,

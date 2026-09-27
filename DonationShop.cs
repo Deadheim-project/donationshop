@@ -55,6 +55,9 @@ namespace DonationShop
         {
            InitConfigs();
 
+            // Salvar o cfg com o servidor ligado recarrega a lista, e o ServerSync a repassa
+            // para quem esta conectado.
+            Deadheim.Shared.ConfigWatcher.Watch(Config, Name);
 
             harmony.PatchAll();
         }
@@ -86,6 +89,9 @@ namespace DonationShop
     new ConfigDescription("ShopItems"));
             ServerConfigSync.AddConfigEntry(ShopItems).SynchronizedConfig = true;
 
+            // A lista so e lida quando o painel e montado; com ela trocada, o painel ja
+            // montado mostraria os itens e precos velhos.
+            ShopItems.SettingChanged += (_, __) => GUI.InvalidateMenu();
         }
     }
 }
