@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using System;
 using UnityEngine;
-using Jotunn.Managers;
 using System.IO;
 using BepInEx;
 using UnityEngine.UI;
@@ -26,7 +25,7 @@ namespace DonationShop
             DonationShop.IsBuying = true;
 
             ZPackage pkg = new ZPackage();
-            pkg.Write(price + "," + amount + "," + prefab.name + "," + PlayFabManager.m_customId);
+            pkg.Write(price + "," + amount + "," + prefab.name + "," + DonationShop.LocalPlayerId);
             ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "BuyItemServer", pkg);
         }
     }

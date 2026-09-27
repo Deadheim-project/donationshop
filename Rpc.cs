@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using UnityEngine;
-using Jotunn.Managers;
+using Deadheim.Vanilla;
 using System.IO;
 using BepInEx;
 using UnityEngine.UI;
@@ -106,7 +106,7 @@ namespace DonationShop
         public static void RPC_BuyItemClient(long sender, ZPackage pkg)
         {
             ZPackage pkgToSend = new ZPackage();
-            pkgToSend.Write(PlayFabManager.m_customId);
+            pkgToSend.Write(DonationShop.LocalPlayerId);
             ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.instance.GetServerPeerID(), "GetGoldServer", pkgToSend);
 
             string[] splited = pkg.ReadString().Split(',');
@@ -114,7 +114,7 @@ namespace DonationShop
             int amount = Convert.ToInt32(splited[1]);
             string name = (splited[2]);
 
-            GameObject prefab = PrefabManager.Instance.GetPrefab(name);
+            GameObject prefab = Prefabs.Get(name);
             if (prefab.GetComponent<ItemDrop>() != null)
             {
                 Player.m_localPlayer.m_inventory.AddItem(prefab, amount);

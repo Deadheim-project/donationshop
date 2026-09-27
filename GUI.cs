@@ -1,4 +1,4 @@
-﻿using Jotunn.Managers;
+﻿using Deadheim.Vanilla;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,18 +13,6 @@ namespace DonationShop
         {
             if (!DonationShop.Menu && Player.m_localPlayer)
             {
-                if (GUIManager.Instance == null)
-                {
-                    Debug.LogError("GUIManager instance is null");
-                    return;
-                }
-
-                if (!GUIManager.CustomGUIFront)
-                {
-                    Debug.LogError("GUIManager CustomGUI is null");
-                    return;
-                }
-
                 LoadMenu();
             }
 
@@ -42,8 +30,8 @@ namespace DonationShop
         {
             if (Player.m_localPlayer == null) return;
 
-            DonationShop.Menu = GUIManager.Instance.CreateWoodpanel(
-                                                                       parent: GUIManager.CustomGUIFront.transform,
+            DonationShop.Menu = Ui.CreateWoodpanel(
+                                                                       parent: Ui.Front.transform,
                                                                        anchorMin: new Vector2(0.5f, 0.5f),
                                                                        anchorMax: new Vector2(0.5f, 0.5f),
                                                                        position: new Vector2(0, 0),
@@ -52,11 +40,11 @@ namespace DonationShop
                                                                        draggable: true);
             DonationShop.Menu.SetActive(false);
 
-            GameObject scrollView = GUIManager.Instance.CreateScrollView(parent: DonationShop.Menu.transform,
+            GameObject scrollView = Ui.CreateScrollView(parent: DonationShop.Menu.transform,
                     showHorizontalScrollbar: false,
                     showVerticalScrollbar: true,
                     handleSize: 8f,
-                    handleColors: GUIManager.Instance.ValheimScrollbarHandleColorBlock,
+                    handleColors: Ui.ValheimScrollbarHandleColorBlock,
                     handleDistanceToBorder: 50f,
                     slidingAreaBackgroundColor: new Color(0.1568628f, 0.1019608f, 0.0627451f, 1f),
                     width: 500f,
@@ -67,15 +55,15 @@ namespace DonationShop
             tf.anchoredPosition = new Vector2(0, 25);
             scrollView.SetActive(true); 
 
-            GameObject coinTextObject = GUIManager.Instance.CreateText(
+            GameObject coinTextObject = Ui.CreateText(
                 text: "Deadcoins : 0",
                 parent: DonationShop.Menu.transform,
                 anchorMin: new Vector2(0.5f, 1f),
                 anchorMax: new Vector2(0.5f, 1f),
                 position: new Vector2(-85f, -100f),
-                font: GUIManager.Instance.AveriaSerifBold,
+                font: Ui.AveriaSerifBold,
                 fontSize: 25,
-                color: GUIManager.Instance.ValheimOrange,
+                color: Ui.ValheimOrange,
                 outline: true,
                 outlineColor: Color.black,
                 width: 350f,
@@ -87,7 +75,7 @@ namespace DonationShop
 
             scrollView.transform.Find("Scroll View").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
 
-            GameObject buttonObject = GUIManager.Instance.CreateButton(
+            GameObject buttonObject = Ui.CreateButton(
                 text: "Close",
                 parent: DonationShop.Menu.transform,
                 anchorMin: new Vector2(0.5f, 0.5f),
@@ -97,13 +85,13 @@ namespace DonationShop
                 height: 45f);
             buttonObject.SetActive(true);
 
-            GameObject errorText = GUIManager.Instance.CreateText(
+            GameObject errorText = Ui.CreateText(
                 text: "",
                 parent: DonationShop.Menu.transform,
                 anchorMin: new Vector2(0.5f, 1f),
                 anchorMax: new Vector2(0.5f, 1f),
                 position: new Vector2(0f, -600f),
-                font: GUIManager.Instance.AveriaSerifBold,
+                font: Ui.AveriaSerifBold,
                 fontSize: 14,
                 color: Color.red,
                 outline: true,
@@ -120,15 +108,15 @@ namespace DonationShop
 
         private static void CreateItems(GameObject scrollView)
         {
-            GameObject x = GUIManager.Instance.CreateText(
+            GameObject x = Ui.CreateText(
                 text: "\n",
              parent: scrollView.transform.Find("Scroll View/Viewport/Content"),
                 anchorMin: new Vector2(0.5f, 1f),
                 anchorMax: new Vector2(0.5f, 1f),
                 position: new Vector2(0f, 0f),
-                font: GUIManager.Instance.AveriaSerifBold,
+                font: Ui.AveriaSerifBold,
                 fontSize: 10,
-                color: GUIManager.Instance.ValheimOrange,
+                color: Ui.ValheimOrange,
                 outline: true,
                 outlineColor: Color.black,
                 width: 150f,
@@ -142,7 +130,7 @@ namespace DonationShop
                 string amount = splitedArray[1].Split('=')[1];
                 string price = splitedArray[2].Split('=')[1];
 
-                GameObject originalPrefab = PrefabManager.Instance.GetPrefab(prefab);
+                GameObject originalPrefab = Prefabs.Get(prefab);
 
                 if (originalPrefab is null)
                 {
@@ -150,52 +138,52 @@ namespace DonationShop
                     continue;
                 }
                 
-                GameObject prefabName = GUIManager.Instance.CreateText(
+                GameObject prefabName = Ui.CreateText(
                     text: prefab.ToString(),
                  parent: scrollView.transform.Find("Scroll View/Viewport/Content"),
                     anchorMin: new Vector2(0.5f, 1f),
                     anchorMax: new Vector2(0.5f, 1f),
                     position: new Vector2(0f, 0f),
-                    font: GUIManager.Instance.AveriaSerifBold,
+                    font: Ui.AveriaSerifBold,
                     fontSize: 14,
-                    color: GUIManager.Instance.ValheimOrange,
+                    color: Ui.ValheimOrange,
                     outline: true,
                     outlineColor: Color.black,
                     width: 150f,
                     height: 18f,
                     addContentSizeFitter: false);
 
-                GameObject amountText = GUIManager.Instance.CreateText(
+                GameObject amountText = Ui.CreateText(
                   text: amount + "x",
              parent: scrollView.transform.Find("Scroll View/Viewport/Content"),
                   anchorMin: new Vector2(0.5f, 1f),
                   anchorMax: new Vector2(0.5f, 1f),
                   position: new Vector2(0, 0f),
-            font: GUIManager.Instance.AveriaSerifBold,
+            font: Ui.AveriaSerifBold,
                   fontSize: 14,
-                  color: GUIManager.Instance.ValheimOrange,
+                  color: Ui.ValheimOrange,
                   outline: true,
                   outlineColor: Color.black,
                   width: 60f,
                   height: 18f,
                   addContentSizeFitter: false);
 
-                GameObject priceText = GUIManager.Instance.CreateText(
+                GameObject priceText = Ui.CreateText(
                       text: price + " Deadcoins",
                  parent: scrollView.transform.Find("Scroll View/Viewport/Content"),
                       anchorMin: new Vector2(0.5f, 1f),
                       anchorMax: new Vector2(0.5f, 1f),
                       position: new Vector2(0, 0f),
-            font: GUIManager.Instance.AveriaSerifBold,
+            font: Ui.AveriaSerifBold,
                       fontSize: 14,
-                      color: GUIManager.Instance.ValheimOrange,
+                      color: Ui.ValheimOrange,
                       outline: true,
                       outlineColor: Color.black,
                       width: 250f,
                       height: 18f,
                       addContentSizeFitter: false);
 
-                GameObject buttonObject2 = GUIManager.Instance.CreateButton(
+                GameObject buttonObject2 = Ui.CreateButton(
                           text: " Comprar ",
                  parent: prefabName.transform,
                       anchorMin: new Vector2(0.5f, -0.8f),
@@ -210,15 +198,15 @@ namespace DonationShop
 
                 DonationShop.menuItems.Add(prefab + "Text", priceText);
 
-                GameObject spacador = GUIManager.Instance.CreateText(
+                GameObject spacador = Ui.CreateText(
                     text: "",
                  parent: scrollView.transform.Find("Scroll View/Viewport/Content"),
                     anchorMin: new Vector2(0.5f, -5f),
                     anchorMax: new Vector2(0.5f, -5f),
                     position: new Vector2(0f, -20f),
-                    font: GUIManager.Instance.AveriaSerifBold,
+                    font: Ui.AveriaSerifBold,
                     fontSize: 10,
-                    color: GUIManager.Instance.ValheimOrange,
+                    color: Ui.ValheimOrange,
                     outline: true,
                     outlineColor: Color.black,
                     width: 150f,
