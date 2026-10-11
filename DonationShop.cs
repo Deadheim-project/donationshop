@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BepInEx.Configuration;
 using HarmonyLib;
 using ServerSync;
+using Deadheim.Vanilla;
 
 namespace DonationShop
 {
@@ -12,7 +13,7 @@ namespace DonationShop
     {
         public const string PluginGUID = "Detalhes.DonationShop";
         public const string Name = "DonationShop";
-        public const string Version = "2.0.0";
+        public const string Version = "2.0.1";
 
         // No lugar do NetworkCompatibility e do IsAdminOnly do Jotunn: a lista da loja
         // que vale e a do servidor, e cliente sem o mod (ou abaixo de 2.0) e recusado.
@@ -20,7 +21,7 @@ namespace DonationShop
         {
             DisplayName = Name,
             CurrentVersion = Version,
-            MinimumRequiredVersion = "2.0.0",
+            MinimumRequiredVersion = "2.0.1",
             ModRequired = true,
             IsLocked = true
         };
@@ -64,6 +65,8 @@ namespace DonationShop
 
         private void Update()
         {
+            if (Ui.IsTyping()) return;
+
             if (Input.GetKeyDown(KeyboardShortcut.Value))
             {
                 Player localPlayer = Player.m_localPlayer;

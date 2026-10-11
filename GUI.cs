@@ -11,6 +11,8 @@ namespace DonationShop
     {
         public static void ToggleMenu()
         {
+            if (Ui.IsTyping()) return;
+
             if (!DonationShop.Menu && Player.m_localPlayer)
             {
                 LoadMenu();
